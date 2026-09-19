@@ -7,8 +7,26 @@
 // ─────────────────────────────────────────────────────────────
 
 import bookClubImage from "../assets/book-club.jpg";
+import badashboardImage from "../assets/ba-dashboard.jpg";
+import glowNatureImage from "../assets/glow-nature.jpg";
+import mobyImage from "../assets/moby.jpg";
+import pulseImage from "../assets/pulse.png";
+import xxlApparelImage from "../assets/xxl-apparel.jpg";
 
 export const projects = [
+
+    {
+    title: "Business Analytics Dashboard",
+    description:
+      "An interactive business analytics dashboard that visualizes key performance metrics, sales trends, and business insights through intuitive charts and data-driven reports.",
+    image: badashboardImage,
+    technologies: ["Vite", "React", "Tailwind", "Shadcn/ui"],
+    // github: "#",
+    // demo: "#",
+    note: "Source Code is unavailable at the moment.",
+    featured: true,
+  },
+
 {
   title: "Book Club",
   description:
@@ -17,67 +35,56 @@ export const projects = [
   technologies: ["HTML", "CSS", "JavaScript"],
   // github: "#",
   // demo: "#",
-  note: "Code is unavailable at the moment.",
+  note: "Source Code is unavailable at the moment.",
   featured: true,
 },
 
-  {
-    title: "Task Management App",
-    description:
-      "A drag-and-drop project board with real-time sync, team workspaces, and activity history.",
-    image: "",
-    technologies: ["Next.js", "React", "Tailwind"],
-    // github: "#",
-    // demo: "#",
-    note: "Code is unavailable at the moment.",
-    featured: true,
-  },
 
   {
-    title: "Modern Dashboard",
+    title: "Glow Nature",
     description:
-      "An analytics dashboard with live data visualization, custom report builder, and role-based access.",
-    image: "",
-    technologies: ["Next.js", "REST API", "MySQL"],
+      "A nature-inspired beauty and wellness brand concept focused on creating a calming, elegant, and intuitive digital experience through thoughtful UI/UX design.",
+    image: glowNatureImage,
+    technologies: ["FIGMA", " UI/UX Design"],
     // github: "#",
     // demo: "#",
-    note: "Code is unavailable at the moment.",
+    note: "Source Code is unavailable at the moment.",
     featured: false,
   },
 
   {
-    title: "Portfolio Website",
+    title: "moby",
     description:
-      "A design-forward personal site with case studies, a content-driven blog, and a custom CMS integration.",
-    image: "",
-    technologies: ["React", "Tailwind", "Figma"],
+      "A mobile app designed to make movie dates easier by helping users discover movies, plan date schedules, and send personalized invitations to friends or loved ones.",
+    image: mobyImage,
+    technologies: ["React Native", "TypeScript", "GSAP"],
     // github: "#",
     // demo: "#",
-    note: "Code is unavailable at the moment.",
+    note: "Source Code is unavailable at the moment.",
     featured: false,
   },
 
-  {
-    title: "Booking System",
-    description:
-      "An appointment scheduling tool with calendar sync, automated reminders, and payment collection.",
-    image: "",
-    technologies: ["Flutter", "Dart", "Laravel"],
-    // github: "#",
-    // demo: "#",
-    note: "Code is unavailable at the moment.",
-    featured: false,
-  },
+{
+title: "Pulse",
+description:
+"A mobile application focused on delivering a smooth and intuitive user experience with efficient features designed for everyday use.",
+image: pulseImage,
+technologies: ["React Native",],
+// github: "#",
+// demo: "#",
+note: "Source Code is unavailable at the moment.",
+featured: false,
+},
 
-  {
-    title: "AI Web Application",
-    description:
-      "A chat-based research assistant with streaming responses, source citations, and saved sessions.",
-    image: "",
-    technologies: ["React Native", "REST API", "Laravel"],
-    // github: "#",
-    // demo: "#",
-    note: "Code is unavailable at the moment.",
-    featured: false,
-  },
+{
+title: "XXL Apparel",
+description:
+"A modern apparel e-commerce UI/UX design concept created in Figma, featuring a clean interface, product browsing experience, and intuitive shopping flow.",
+image: xxlApparelImage,
+technologies: ["Figma", "UI/UX Design"],
+// github: "#",
+// demo: "#",
+note: "Source code is unavailable at the moment.",
+featured: false,
+},
 ];

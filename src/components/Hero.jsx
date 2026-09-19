@@ -95,8 +95,8 @@ export default function Hero() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
             </div>
             <p><span className="text-signal-indigo">const</span> dev = {"{"}</p>
-            <p className="pl-3">stack: <span className="text-signal-cyan">&apos;Laravel + Next&apos;</span>,</p>
-            <p className="pl-3">mobile: <span className="text-signal-cyan">&apos;Flutter&apos;</span>,</p>
+            <p className="pl-3">stack: <span className="text-signal-cyan">&apos;React + Laravel&apos;</span>,</p>
+            <p className="pl-3">mobile: <span className="text-signal-cyan">&apos;React Native&apos;</span>,</p>
             <p className="pl-3">status: <span className="text-signal-cyan">&apos;shipping&apos;</span>,</p>
             <p>{"}"}</p>
           </div>

@@ -14,7 +14,7 @@ export const siteConfig = {
   resumeUrl: "#",
   social: {
     github: "https://github.com/yourusername",
-    facebook: "https://facebook.com/yourusername"
+    facebook: "https://www.facebook.com/share/1dUYLfARY7/"
   },
   stats: [
     { label: "Year of experience", value: "1" },
