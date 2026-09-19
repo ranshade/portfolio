@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-20 lg:pt-20"
+      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-20"
     >
       {/* Background layer: grid + glow + floating shapes, kept subtle */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">

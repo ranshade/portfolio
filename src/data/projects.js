@@ -6,7 +6,7 @@
 // Add the actual URLs when the projects are ready to be shared.
 // ─────────────────────────────────────────────────────────────
 
-import bookClubImage from "../assets/book-club.jpg";
+import bookClubImage from "../assets/book-club.png";
 import badashboardImage from "../assets/ba-dashboard.jpg";
 import glowNatureImage from "../assets/glow-nature.jpg";
 import mobyImage from "../assets/moby.jpg";
@@ -21,8 +21,8 @@ export const projects = [
       "An interactive business analytics dashboard that visualizes key performance metrics, sales trends, and business insights through intuitive charts and data-driven reports.",
     image: badashboardImage,
     technologies: ["Vite", "React", "Tailwind", "Shadcn/ui"],
-    // github: "#",
-    // demo: "#",
+    //github: "#",
+    //demo: "#",
     note: "Source Code is unavailable at the moment.",
     featured: true,
   },
@@ -33,9 +33,9 @@ export const projects = [
     "A community platform for book lovers to discover, discuss, and share their favorite reads, featuring forum-style discussions and access to digital books for online reading.",
   image: bookClubImage,
   technologies: ["HTML", "CSS", "JavaScript"],
-  // github: "#",
-  // demo: "#",
-  note: "Source Code is unavailable at the moment.",
+  github: "https://github.com/ranshade/BookClub.git",
+  demo: "https://book-cl.netlify.app",
+  //note: "Source Code is unavailable at the moment.",
   featured: true,
 },
 

@@ -302,3 +302,27 @@ Also fixed while in here: both `Contact.jsx` and `Footer.jsx` had a
 `socialIcons` map for `github`/`linkedin`/`twitter`, but `siteConfig.social`
 only has `github`/`facebook` — the Facebook link was silently rendering
 nothing. Both now map `facebook` correctly.
+
+## Layout: back to a fixed top navbar
+
+Reverted from the sidebar back to a fixed top navbar — same `Navbar.jsx`
+from before the sidebar experiment, `position: fixed` (not `sticky`), so it
+stays on screen through the whole page regardless of scroll position or
+container structure. `Sidebar.jsx` and the `lg:pl-72 xl:pl-80` content
+offset in `App.jsx` are removed since nothing needs to clear a fixed
+sidebar anymore.
+
+Two things reverted alongside it, since they only made sense for the
+sidebar:
+- Hero's top padding is back to a flat `pt-28` (no more reduced `lg:pt-20`)
+  — the fixed navbar now covers the top on every breakpoint again.
+  desktop needs to clear it now, same as mobile.
+- `scroll-padding-top` in `index.css` is back to `5.5rem` on all screen
+  sizes (dropped the `1.5rem` desktop override).
+
+The underline `.nav-link` CSS (desktop top-navbar style) is restored too —
+it had been removed when the sidebar made it unused. `.nav-link-mobile`
+(left-bar style) is unchanged and still used by the mobile drawer menu.
+
+Your own edit to add a **Services** link — present in the sidebar version
+you sent back — carried over into the restored navbar's `navLinks`.

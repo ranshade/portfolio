@@ -87,16 +87,8 @@
   html {
     scroll-behavior: smooth;
 
-    /* Fixed mobile header is ~72px tall — stop anchors landing underneath
-       it. The desktop sidebar sits on the left, not the top, so it needs
-       no top offset — reset to a small breathing gap at the lg breakpoint. */
+    /* Fixed header is ~72px tall — stop anchors landing underneath it. */
     scroll-padding-top: 5.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    html {
-      scroll-padding-top: 1.5rem;
-    }
   }
 
   body {
@@ -295,11 +287,47 @@
     border-color: rgb(var(--border-strong));
   }
 
-  /* ── Sidebar / mobile-drawer nav links ──────────────────────
-     Used by both the desktop sidebar and the mobile drawer menu —
-     the layout switched from a top navbar (underline indicator) to
-     a sidebar (left-bar indicator), so there's now one vertical nav
-     style instead of two. ───────────────────────────────────── */
+  /* ── Navbar links ─────────────────────────────────────────
+     .nav-link is the horizontal desktop navbar style (underline
+     indicator). .nav-link-mobile is used by the mobile drawer menu
+     (left-bar indicator) — kept separate since a horizontal underline
+     doesn't read well in a vertical list. ─────────────────────── */
+
+  .nav-link {
+    @apply relative py-1.5 text-sm text-mist-500;
+
+    transition: color 0.18s ease;
+  }
+
+  .nav-link:hover {
+    color: rgb(var(--text));
+  }
+
+  /* Underline indicator — scales in only when the link is active. */
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 999px;
+    background-color: rgb(var(--accent));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+  }
+
+  .nav-link[aria-current="true"] {
+    @apply font-semibold;
+
+    color: rgb(var(--text));
+  }
+
+  .nav-link[aria-current="true"]::after {
+    transform: scaleX(1);
+  }
 
   .nav-link-mobile {
     @apply relative block rounded-lg px-3 py-3 text-base text-mist-300;

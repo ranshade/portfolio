@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./hooks/useTheme.jsx";
-import Sidebar from "./components/Sidebar.jsx";
+import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import TechMarquee from "./components/TechMarquee.jsx";
 import About from "./components/About.jsx";
@@ -21,24 +21,19 @@ export default function App() {
           Skip to content
         </a>
 
-        {/* Sidebar is fixed-positioned (out of flow), so the left padding
-            below is what actually reserves its space — keep both in sync
-            with the aside's own w-72 / xl:w-80 in Sidebar.jsx. */}
-        <Sidebar />
+        <Navbar />
 
-        <div className="lg:pl-72 xl:pl-80">
-          <main>
-            <Hero />
-            <TechMarquee />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Services />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
+        <main>
+          <Hero />
+          <TechMarquee />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Services />
+          <Contact />
+        </main>
+        <Footer />
       </div>
     </ThemeProvider>
   );
