@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import { siteConfig } from "../data/siteConfig.js";
 import Reveal from "./Reveal.jsx";
+import Section from "./Section.jsx";
+import SectionHeader from "./SectionHeader.jsx";
 
 const socialIcons = {
   github: Github,
@@ -52,20 +54,16 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 sm:py-32">
+    <Section id="contact" tone="raised">
       <div className="section-shell">
-        <Reveal>
-          <p className="eyebrow">Contact</p>
-          <h2 className="mt-3 max-w-2xl text-display-md font-semibold">
-            Have a project in mind? Let&rsquo;s talk.
-          </h2>
-          <p className="mt-4 max-w-prose text-base leading-relaxed text-mist-500">
-            Whether you have a clear brief or just an idea you&rsquo;re testing, I&rsquo;d be glad
-            to hear about it. I usually reply within a day or two.
-          </p>
-        </Reveal>
+        <SectionHeader
+          index="06"
+          eyebrow="Contact"
+          title="Have a project in mind? Let's talk."
+          lead="Whether you have a clear brief or just an idea you're testing, I'd be glad to hear about it. I usually reply within a day or two."
+        />
 
-        <div className="mt-14 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal delay={80}>
             <div className="space-y-6">
               <a
@@ -173,7 +171,7 @@ export default function Contact() {
           </Reveal>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 

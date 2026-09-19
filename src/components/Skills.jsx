@@ -1,5 +1,7 @@
 import { skillGroups } from "../data/skills.js";
 import Reveal from "./Reveal.jsx";
+import Section from "./Section.jsx";
+import SectionHeader from "./SectionHeader.jsx";
 
 function ProficiencyDots({ level }) {
   return (
@@ -18,43 +20,40 @@ function ProficiencyDots({ level }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 sm:py-32">
+    <Section id="skills" tone="raised">
       <div className="section-shell">
-        <Reveal>
-          <p className="eyebrow">Skills</p>
-          <h2 className="mt-3 max-w-2xl text-display-md font-semibold">
-            Tools I reach for, and why.
-          </h2>
-        </Reveal>
+        <SectionHeader index="02" eyebrow="Skills" title="Tools I reach for, and why." />
 
-        <div className="mt-14 space-y-12">
-          {skillGroups.map((group, groupIndex) => (
-            <Reveal key={group.group} delay={groupIndex * 90}>
-              <h3 className="mb-5 text-sm font-medium uppercase tracking-wide text-mist-600">
-                {group.group}
-              </h3>
+        <div className="mt-12 space-y-10">
+          {skillGroups.map((group) => (
+            <div key={group.group}>
+              <Reveal>
+                <h3 className="mb-5 flex items-center gap-3 text-sm font-medium uppercase tracking-wide text-mist-600">
+                  {group.group}
+                  <span className="h-px flex-1 bg-ink-700" aria-hidden="true" />
+                </h3>
+              </Reveal>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {group.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="surface-card-interactive group h-full p-5"
-                  >
-                    <div className="flex items-start justify-between">
-                      <h4 className="font-display text-base font-medium text-mist-100">
-                        {skill.name}
-                      </h4>
-                      <ProficiencyDots level={skill.level} />
+                {group.skills.map((skill, index) => (
+                  <Reveal key={skill.name} delay={index * 70}>
+                    <div className="surface-card-interactive group h-full p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <h4 className="font-display text-base font-medium text-mist-100">
+                          {skill.name}
+                        </h4>
+                        <ProficiencyDots level={skill.level} />
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-mist-600">
+                        {skill.description}
+                      </p>
                     </div>
-                    <p className="mt-2 text-sm leading-relaxed text-mist-600">
-                      {skill.description}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

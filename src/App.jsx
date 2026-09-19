@@ -1,6 +1,7 @@
 import { ThemeProvider } from "./hooks/useTheme.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
+import TechMarquee from "./components/TechMarquee.jsx";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
@@ -22,6 +23,7 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <TechMarquee />
           <About />
           <Skills />
           <Projects />

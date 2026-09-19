@@ -73,6 +73,8 @@ export default {
         "fade-in": "fadeIn 0.7s ease-out forwards",
         float: "float 7s ease-in-out infinite",
         "spin-slow": "spin 14s linear infinite",
+        marquee: "marquee 36s linear infinite",
+        "marquee-reverse": "marquee-reverse 30s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -82,6 +84,16 @@ export default {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-16px)" },
+        },
+        // The track holds two identical copies of the list, so shifting
+        // it by exactly half its width loops with no visible seam.
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
     },

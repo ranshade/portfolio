@@ -1,14 +1,10 @@
 import { ExternalLink, Github } from "lucide-react";
 
 export default function ProjectCard({ project }) {
-  const { title, description, technologies, github, demo, featured } = project;
+  const { title, description, technologies, github, demo } = project;
 
   return (
-    <article
-      className={`surface-card-interactive group flex h-full flex-col overflow-hidden ${
-        featured ? "sm:col-span-2" : ""
-      }`}
-    >
+    <article className="surface-card-interactive group flex h-full flex-col overflow-hidden">
       <div className="relative aspect-video overflow-hidden border-b border-ink-700 bg-ink-850">
         <div className="absolute inset-0 bg-signal-gradient opacity-[0.1] transition-opacity duration-300 group-hover:opacity-[0.18]" />
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />

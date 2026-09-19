@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { siteConfig } from "../data/siteConfig.js";
 import useActiveSection from "../hooks/useActiveSection.js";
 import ThemeToggle from "./ThemeToggle.jsx";
+import ScrollProgress from "./ScrollProgress.jsx";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -100,6 +101,8 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+
+      {scrolled && <ScrollProgress />}
 
       {menuOpen && (
         <div className="md:hidden">

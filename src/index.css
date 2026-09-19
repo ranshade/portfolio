@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +9,7 @@
    `<alpha-value>` syntax keeps working (e.g. border-mist-100/10).
    Light is the default; `.dark` on <html> flips everything.
    ───────────────────────────────────────────────────────────── */
+
 :root {
   /* Surfaces */
   --bg: 255 255 255;
@@ -39,7 +41,11 @@
   /* Misc */
   --grid-line: rgba(15, 17, 21, 0.055);
   --ring: 79 70 229;
-  --shadow-card: 0 1px 2px rgba(15, 17, 21, 0.04), 0 8px 24px -12px rgba(15, 17, 21, 0.1);
+
+  --shadow-card:
+    0 1px 2px rgba(15, 17, 21, 0.04),
+    0 8px 24px -12px rgba(15, 17, 21, 0.1);
+
   color-scheme: light;
 }
 
@@ -69,23 +75,34 @@
 
   --grid-line: rgba(244, 244, 245, 0.05);
   --ring: 154 152 255;
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+
+  --shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 8px 24px -12px rgba(0, 0, 0, 0.6);
+
   color-scheme: dark;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+
     /* Fixed header is ~72px tall — stop anchors landing underneath it. */
     scroll-padding-top: 5.5rem;
   }
 
   body {
     @apply bg-ink-950 text-mist-100 font-body antialiased;
-    transition: background-color 0.25s ease, color 0.25s ease;
+
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-display text-mist-100;
   }
 
@@ -103,13 +120,16 @@
   ::-webkit-scrollbar {
     width: 10px;
   }
+
   ::-webkit-scrollbar-track {
     background: rgb(var(--bg));
   }
+
   ::-webkit-scrollbar-thumb {
     background: rgb(var(--border-strong));
     border-radius: 999px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(var(--text-subtle));
   }
@@ -129,18 +149,33 @@
   }
 
   /* ── Surfaces ───────────────────────────────────────────── */
+
   .surface-card {
     @apply rounded-2xl border border-ink-700 bg-ink-900;
+
     box-shadow: var(--shadow-card);
   }
 
   .surface-card-interactive {
     @apply rounded-2xl border border-ink-700 bg-ink-900 transition-colors duration-200;
+
     box-shadow: var(--shadow-card);
   }
+
+  .surface-card-interactive {
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
   .surface-card-interactive:hover {
     border-color: rgb(var(--border-strong));
     background-color: rgb(var(--surface-2));
+
+    /* Small lift so cards respond to the cursor instead of sitting flat. */
+    transform: translateY(-3px);
   }
 
   .chip {
@@ -151,59 +186,81 @@
      Every variant is a flat solid fill (no gradients) that swaps
      with the active theme. Sizes are separate so variants can mix.
      ───────────────────────────────────────────────────────── */
+
   .btn {
     @apply inline-flex select-none items-center justify-center gap-2 rounded-full
            text-sm font-semibold leading-none;
-    transition: background-color 0.18s ease, border-color 0.18s ease,
-                color 0.18s ease, transform 0.18s ease;
+
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
   }
+
   .btn:active {
     transform: translateY(1px);
   }
 
-  .btn-sm { @apply px-4 py-2.5; }
-  .btn-md { @apply px-5 py-3; }
-  .btn-lg { @apply px-6 py-3.5; }
+  .btn-sm {
+    @apply px-4 py-2.5;
+  }
+
+  .btn-md {
+    @apply px-5 py-3;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3.5;
+  }
 
   /* Primary — solid accent fill */
+
   .btn-primary {
     background-color: rgb(var(--accent));
     color: rgb(var(--accent-contrast));
     border: 1px solid rgb(var(--accent));
   }
+
   .btn-primary:hover {
     background-color: rgb(var(--accent-hover));
     border-color: rgb(var(--accent-hover));
   }
 
   /* Neutral — solid near-black on light, solid near-white on dark */
+
   .btn-neutral {
     background-color: rgb(var(--btn-neutral));
     color: rgb(var(--btn-neutral-contrast));
     border: 1px solid rgb(var(--btn-neutral));
   }
+
   .btn-neutral:hover {
     background-color: rgb(var(--btn-neutral-hover));
     border-color: rgb(var(--btn-neutral-hover));
   }
 
   /* Outline — solid surface fill with a visible border */
+
   .btn-outline {
     background-color: rgb(var(--surface));
     color: rgb(var(--text));
     border: 1px solid rgb(var(--border));
   }
+
   .btn-outline:hover {
     background-color: rgb(var(--surface-2));
     border-color: rgb(var(--border-strong));
   }
 
   /* Soft — tinted accent fill, used for the navbar CTA */
+
   .btn-soft {
     background-color: rgb(var(--accent-soft));
     color: rgb(var(--accent));
     border: 1px solid rgb(var(--accent) / 0.25);
   }
+
   .btn-soft:hover {
     background-color: rgb(var(--accent));
     color: rgb(var(--accent-contrast));
@@ -211,27 +268,39 @@
   }
 
   /* Square icon button (theme toggle, mobile menu) */
+
   .btn-icon {
     @apply inline-flex h-10 w-10 items-center justify-center rounded-full;
+
     background-color: rgb(var(--surface));
     color: rgb(var(--text));
     border: 1px solid rgb(var(--border));
-    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
   }
+
   .btn-icon:hover {
     background-color: rgb(var(--surface-2));
     border-color: rgb(var(--border-strong));
   }
 
   /* ── Navbar links ───────────────────────────────────────── */
+
   .nav-link {
     @apply relative py-1.5 text-sm text-mist-500;
+
     transition: color 0.18s ease;
   }
+
   .nav-link:hover {
     color: rgb(var(--text));
   }
+
   /* Underline indicator — scales in only when the link is active. */
+
   .nav-link::after {
     content: "";
     position: absolute;
@@ -245,28 +314,39 @@
     transform-origin: center;
     transition: transform 0.22s ease;
   }
+
   .nav-link[aria-current="true"] {
     @apply font-semibold;
+
     color: rgb(var(--text));
   }
+
   .nav-link[aria-current="true"]::after {
     transform: scaleX(1);
   }
 
   .nav-link-mobile {
     @apply relative block rounded-lg px-3 py-3 text-base text-mist-300;
-    transition: background-color 0.18s ease, color 0.18s ease;
+
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease;
   }
+
   .nav-link-mobile:hover {
     background-color: rgb(var(--surface-2));
     color: rgb(var(--text));
   }
+
   .nav-link-mobile[aria-current="true"] {
     @apply font-semibold;
+
     background-color: rgb(var(--accent-soft));
     color: rgb(var(--accent));
   }
+
   /* Left bar indicator for the active mobile link. */
+
   .nav-link-mobile[aria-current="true"]::before {
     content: "";
     position: absolute;
@@ -279,8 +359,34 @@
   }
 }
 
+/* ─────────────────────────────────────────────────────────────
+   TECH MARQUEE
+   Single horizontal row with a seamless infinite loop.
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes tech-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-tech-marquee {
+  animation: tech-marquee 30s linear infinite;
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION
+   ───────────────────────────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

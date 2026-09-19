@@ -171,3 +171,64 @@ links get an accent underline, mobile links an accent pill with a left bar.
 The spy tracks `services` too, even though it has no nav link, so no link is
 falsely highlighted while that section is on screen. If you add a section, add
 its id to `sectionIds` in `src/components/Navbar.jsx`.
+
+## Page rhythm & scroll interest
+
+Sections used to be six identically-padded blocks on one flat background,
+which read as a single empty page while scrolling. Four things fix that:
+
+- **`Section.jsx`** — wraps every top-level section and alternates `tone`
+  between the page background (`base`) and a raised surface (`raised`) with
+  hairline borders. Current order: About → Skills → Projects → Experience →
+  Services → Contact alternates base/raised/base/raised/base/raised. If you
+  add or reorder a section, keep the alternation or the rhythm breaks.
+  Pass `pattern` to overlay the faint grid texture (used on Projects).
+- **`SectionHeader.jsx`** — numbered eyebrow (`01`, `02`, …) with an accent
+  rule running to the edge, so a heading reads as the start of something.
+- **`TechMarquee.jsx`** — slow ticker between the hero and About. The list is
+  rendered twice and the track shifts by exactly `-50%`, so the loop is
+  seamless; both copies must stay identical in width or a seam appears.
+- **`ScrollProgress.jsx`** — 2px accent bar along the bottom of the header,
+  visible once you've scrolled past the top.
+
+Cards also stagger in individually (`Reveal delay={index * 70}`) rather than a
+whole grid appearing at once, and lift 3px on hover.
+
+**Note on `Section`:** the `id` stays on the `<section>` element because the
+navbar scroll spy resolves sections by id. Don't move it to an inner wrapper.
+
+## Tech marquee icons
+
+`src/data/brandIcons.js` holds inlined SVG path data (extracted from Simple
+Icons) for PHP, Laravel, MySQL, Next.js, React, Flutter, Dart, Tailwind CSS,
+Figma, and Git — no `react-icons` or other icon-library dependency needed.
+`BrandIcon.jsx` renders one by name at a given size/colour.
+
+The marquee (`TechMarquee.jsx`) is two rows scrolling in opposite directions
+at different speeds, each item a card with its brand icon and a tinted
+colour. Both rows pause on hover so the list is readable if someone wants to
+stop and look. To add a tech: append its path to `brandIcons.js` (grab a
+24×24 `d` path from simple-icons.org) and add an entry to `row1`/`row2` in
+`TechMarquee.jsx`.
+
+## Marquee revision (visible motion + brand icons)
+
+The first pass moved correctly but read as flat/static in a screenshot and
+sat on a background tone too close to white to look like a distinct band.
+This revision:
+
+- Uses a clearly tinted "belt" background (`#F5F4FF` light / `#12131C`
+  dark) instead of the neutral surface tone, which in this palette is only
+  ~6–12 RGB units off white/black — real in a browser, invisible in a still
+  image or on an uncalibrated screen.
+- Gives each chip a colour-tinted circular icon badge (brand colour at
+  ~13% opacity) instead of a bare icon, and switches chips to full pills.
+- Adds a small "The stack behind this site" label above the rows for
+  context, and a soft indigo glow behind the whole band.
+
+The scrolling itself (`animate-marquee` / `animate-marquee-reverse`,
+duplicated track shifted by exactly `-50%`, paused independently per row on
+hover) was verified by compiling the actual Tailwind config and confirming
+the keyframes, utility classes, and the `group-hover/row:[animation-play-
+state:paused]` rule all generate correctly — a screenshot just can't show
+motion either way.

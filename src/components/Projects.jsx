@@ -1,26 +1,33 @@
 import { projects } from "../data/projects.js";
 import ProjectCard from "./ProjectCard.jsx";
 import Reveal from "./Reveal.jsx";
+import Section from "./Section.jsx";
+import SectionHeader from "./SectionHeader.jsx";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 sm:py-32">
+    <Section id="projects" pattern>
       <div className="section-shell">
-        <Reveal>
-          <p className="eyebrow">Projects</p>
-          <h2 className="mt-3 max-w-2xl text-display-md font-semibold">
-            A few things I&rsquo;ve built recently.
-          </h2>
-        </Reveal>
+        <SectionHeader
+          index="03"
+          eyebrow="Projects"
+          title="A few things I've built recently."
+        />
 
-        <Reveal delay={100}>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </Reveal>
+        {/* Each card reveals on its own short delay, so the grid fills in
+            as you scroll instead of appearing all at once. */}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal
+              key={project.title}
+              delay={(index % 2) * 90}
+              className={project.featured ? "sm:col-span-2" : ""}
+            >
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }
