@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./hooks/useTheme.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
@@ -10,24 +11,26 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink-950">
-      <a
-        href="#home"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-mist-100 focus:px-4 focus:py-2 focus:text-sm focus:text-ink-950"
-      >
-        Skip to content
-      </a>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Services />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-ink-950">
+        <a
+          href="#home"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-solid focus:px-4 focus:py-2 focus:text-sm focus:text-solid-fg"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Services />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

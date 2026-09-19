@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#07070B" />
+    <meta name="theme-color" content="#FFFFFF" />
 
-    <title>Alex Rivera — Full Stack Developer</title>
+    <!--
+      Applies the saved theme before first paint so a returning dark-mode
+      visitor never sees a white flash. Must stay inline and in <head>.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme = stored === "dark" ? "dark" : "light";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          /* private mode: fall back to the light default */
+        }
+      })();
+    </script>
+
+    <title>Ransh — Full Stack Developer</title>
     <meta
       name="description"
-      content="Alex Rivera is a full stack developer building fast, accessible, and thoughtfully designed web applications with React, Node.js, and modern tooling."
+      content="Ransh is a full stack developer building fast, accessible, and thoughtfully designed web applications with React, Node.js, and modern tooling."
     />
-    <meta name="author" content="Alex Rivera" />
+    <meta name="author" content="Ransh" />
     <meta name="keywords" content="full stack developer, react developer, frontend developer, web developer portfolio" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Alex Rivera — Full Stack Developer" />
+    <meta property="og:title" content="Ransh — Full Stack Developer" />
     <meta
       property="og:description"
       content="Building digital experiences that make an impact — a portfolio of web applications, dashboards, and interfaces."
@@ -25,7 +42,7 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Alex Rivera — Full Stack Developer" />
+    <meta name="twitter:title" content="Ransh — Full Stack Developer" />
     <meta
       name="twitter:description"
       content="Building digital experiences that make an impact — a portfolio of web applications, dashboards, and interfaces."

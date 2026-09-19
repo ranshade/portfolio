@@ -115,3 +115,59 @@ The contact form in `src/components/Contact.jsx` currently validates input clien
 - No TypeScript, no unnecessary dependencies, no server-side configuration required.
 - The site is a fully static single-page app — no client-side routing is used, so no extra SPA rewrite rules are needed beyond what's already in `vercel.json`.
 - Animations respect `prefers-reduced-motion`.
+
+## Theming (light / dark)
+
+The site ships **light (white) as the default**. A visitor's choice is saved to
+`localStorage` under the `theme` key; the OS `prefers-color-scheme` setting is
+deliberately ignored so a first-time visitor always lands on white.
+
+**How it works**
+
+- `src/index.css` defines every colour as a CSS custom property on `:root`
+  (light) and `.dark` (dark). Values are space-separated RGB channels so
+  Tailwind's `<alpha-value>` syntax still works (`border-ink-700/50`).
+- `tailwind.config.js` maps its colour scale onto those variables, so a class
+  like `bg-ink-950` is white in light mode and near-black in dark mode. No
+  `dark:` variants are needed for ordinary surfaces and text.
+- `src/hooks/useTheme.jsx` holds the state, toggles the `dark` class on
+  `<html>`, persists the choice, and syncs across open tabs.
+- An inline script in `index.html` applies the saved theme *before first paint*
+  so returning dark-mode visitors don't get a white flash. Keep it in `<head>`.
+
+**Token reference**
+
+| Purpose            | Variable                        | Tailwind class      |
+| ------------------ | ------------------------------- | ------------------- |
+| Page background    | `--bg`                          | `bg-ink-950`        |
+| Card surface       | `--surface` / `--surface-2`     | `bg-ink-900` / `850`|
+| Border             | `--border` / `--border-strong`  | `border-ink-700`/`600` |
+| Text               | `--text` → `--text-subtle`      | `text-mist-100` → `600` |
+| Accent             | `--accent`, `--accent-hover`    | `text-signal-indigo`|
+
+To re-brand, change the variables in `src/index.css` — nothing else needs editing.
+
+## Buttons
+
+Buttons use flat, solid fills (no gradients) that swap with the active theme.
+Compose one size class with one variant class:
+
+```jsx
+<a className="btn btn-primary btn-lg">View my work</a>
+```
+
+- Sizes: `btn-sm`, `btn-md`, `btn-lg`
+- Variants: `btn-primary` (solid accent), `btn-neutral` (solid near-black on
+  light / near-white on dark), `btn-outline` (solid surface + border),
+  `btn-soft` (tinted accent, fills solid on hover), `btn-icon` (round 40px)
+
+## Navbar active state
+
+`src/hooks/useActiveSection.js` is a rAF-throttled scroll spy that returns the
+id of the section currently in view. The matching link gets `aria-current="true"`,
+which drives **both** the styling and the screen-reader announcement — desktop
+links get an accent underline, mobile links an accent pill with a left bar.
+
+The spy tracks `services` too, even though it has no nav link, so no link is
+falsely highlighted while that section is on screen. If you add a section, add
+its id to `sectionIds` in `src/components/Navbar.jsx`.

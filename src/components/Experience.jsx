@@ -11,10 +11,10 @@ export default function Experience() {
         </Reveal>
 
         <Reveal delay={100}>
-          <ol className="relative mt-14 space-y-10 border-l border-white/[0.09] pl-8 sm:pl-10">
+          <ol className="relative mt-14 space-y-10 border-l border-ink-700 pl-8 sm:pl-10">
             {experience.map((item) => (
               <li key={`${item.role}-${item.company}`} className="relative">
-                <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full border-2 border-ink-950 bg-signal-violet sm:-left-[49px]" />
+                <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full border-2 border-ink-950 bg-signal-indigo sm:-left-[49px]" />
 
                 <div className="flex flex-col gap-1.5 sm:flex-row sm:items-baseline sm:justify-between">
                   <h3 className="font-display text-lg font-medium text-mist-100">
@@ -31,7 +31,7 @@ export default function Experience() {
                   {item.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-white/[0.08] px-2.5 py-1 text-xs text-mist-600"
+                      className="chip text-mist-600"
                     >
                       {tech}
                     </span>

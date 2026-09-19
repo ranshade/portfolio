@@ -16,8 +16,8 @@ export default function Services() {
             const Icon = Icons[service.icon] || Icons.Code2;
             return (
               <Reveal key={service.title} delay={index * 60}>
-                <div className="h-full rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-colors hover:border-white/[0.14]">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-signal-cyan">
+                <div className="surface-card-interactive h-full p-6">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-ink-700 bg-ink-850 text-signal-cyan">
                     <Icon size={20} strokeWidth={1.8} />
                   </div>
                   <h3 className="mt-4 font-display text-base font-medium text-mist-100">

@@ -39,7 +39,7 @@ export default function About() {
                 keyboard, a screen reader, or a five-year-old phone.
               </p>
               <div className="flex items-center gap-2 pt-2 text-sm text-mist-500">
-                <MapPin size={16} className="text-signal-violet" />
+                <MapPin size={16} className="text-signal-indigo" />
                 {siteConfig.location}
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function About() {
               {siteConfig.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5"
+                  className="surface-card p-5"
                 >
                   <p className="font-display text-3xl font-semibold text-gradient">
                     {stat.value}
@@ -58,13 +58,13 @@ export default function About() {
                   <p className="mt-1.5 text-xs leading-snug text-mist-600">{stat.label}</p>
                 </div>
               ))}
-              <div className="col-span-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5">
+              <div className="surface-card col-span-3 p-5">
                 <p className="mb-3 text-xs font-medium text-mist-600">Technologies I work with</p>
                 <div className="flex flex-wrap gap-2">
                   {techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-white/[0.08] px-3 py-1.5 text-xs text-mist-300"
+                      className="chip px-3 py-1.5 text-mist-300"
                     >
                       {tech}
                     </span>

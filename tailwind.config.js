@@ -1,28 +1,48 @@
 /** @type {import('tailwindcss').Config} */
+
+// Every colour below resolves to a CSS custom property defined in
+// src/index.css. That means the same utility class (e.g. `bg-ink-950`)
+// renders white in light mode and near-black in dark mode — the theme
+// switch only has to toggle the `dark` class on <html>.
+const token = (name) => `rgb(var(${name}) / <alpha-value>)`;
+
 export default {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
+        // Surfaces, from page background outward to borders.
         ink: {
-          950: "#07070B",
-          900: "#0B0B12",
-          850: "#111119",
-          800: "#15151F",
-          700: "#1D1D29",
-          600: "#2A2A38",
+          950: token("--bg"),
+          900: token("--surface"),
+          850: token("--surface-2"),
+          800: token("--surface-3"),
+          700: token("--border"),
+          600: token("--border-strong"),
         },
+        // Text, from strongest to faintest.
         mist: {
-          100: "#F5F5F8",
-          300: "#C7C7D3",
-          500: "#9191A3",
-          600: "#6E6E80",
+          100: token("--text"),
+          300: token("--text-2"),
+          500: token("--text-muted"),
+          600: token("--text-subtle"),
         },
         signal: {
-          indigo: "#6D6AFF",
-          violet: "#9B6BFF",
-          cyan: "#4FD1D9",
+          indigo: token("--accent"),
+          "indigo-hover": token("--accent-hover"),
+          "indigo-soft": token("--accent-soft"),
+          violet: token("--violet"),
+          cyan: token("--cyan"),
+        },
+        // Foreground colour to use on top of a solid accent fill.
+        onaccent: token("--accent-contrast"),
+        // Solid neutral fill: near-black on light, near-white on dark.
+        // Named `solid` so it doesn't shadow Tailwind's built-in `neutral`.
+        solid: {
+          DEFAULT: token("--btn-neutral"),
+          hover: token("--btn-neutral-hover"),
+          fg: token("--btn-neutral-contrast"),
         },
       },
       fontFamily: {
@@ -40,9 +60,11 @@ export default {
         prose: "38rem",
       },
       backgroundImage: {
+        // --grid-line is a full rgba() value so each theme can tune opacity.
         "grid-pattern":
-          "linear-gradient(to right, rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.045) 1px, transparent 1px)",
-        "signal-gradient": "linear-gradient(115deg, #6D6AFF 0%, #9B6BFF 45%, #4FD1D9 100%)",
+          "linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px)",
+        "signal-gradient":
+          "linear-gradient(115deg, rgb(var(--accent)) 0%, rgb(var(--violet)) 45%, rgb(var(--cyan)) 100%)",
       },
       backgroundSize: {
         grid: "44px 44px",

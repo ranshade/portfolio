@@ -18,12 +18,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.07] py-12">
+    <footer className="border-t border-ink-700 py-12">
       <div className="section-shell flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-xs">
           <a href="#home" className="font-display text-lg font-semibold text-mist-100">
             {siteConfig.initials}
-            <span className="text-signal-violet">.</span>
+            <span className="text-signal-indigo">.</span>
           </a>
           <p className="mt-3 text-sm leading-relaxed text-mist-600">
             {siteConfig.role} building fast, accessible, and thoughtfully designed web
@@ -35,7 +35,7 @@ export default function Footer() {
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist-500">
             {footerLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-mist-100">
+                <a href={link.href} className="transition-colors hover:text-signal-indigo">
                   {link.label}
                 </a>
               </li>
@@ -54,7 +54,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={key}
-                className="text-mist-600 transition-colors hover:text-mist-100"
+                className="text-mist-600 transition-colors hover:text-signal-indigo"
               >
                 <Icon size={17} />
               </a>
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="section-shell mt-10 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-xs text-mist-600 sm:flex-row sm:items-center sm:justify-between">
+      <div className="section-shell mt-10 flex flex-col gap-2 border-t border-ink-700 pt-6 text-xs text-mist-600 sm:flex-row sm:items-center sm:justify-between">
         <p>© {year} {siteConfig.name}. All rights reserved.</p>
         <p>Built with React &amp; Tailwind CSS.</p>
       </div>

@@ -72,13 +72,13 @@ export default function Contact() {
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-3 text-sm text-mist-300 transition-colors hover:text-mist-100"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-signal-cyan">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink-700 bg-ink-900 text-signal-cyan">
                   <Mail size={17} />
                 </span>
                 {siteConfig.email}
               </a>
               <div className="flex items-center gap-3 text-sm text-mist-300">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-signal-violet">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink-700 bg-ink-900 text-signal-violet">
                   <MapPin size={17} />
                 </span>
                 {siteConfig.location}
@@ -95,7 +95,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noreferrer noopener"
                       aria-label={key}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-mist-500 transition-colors hover:border-white/20 hover:text-mist-100"
+                      className="btn-icon text-mist-500 hover:text-signal-indigo"
                     >
                       <Icon size={16} />
                     </a>
@@ -147,11 +147,11 @@ export default function Contact() {
                   onChange={handleChange}
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? "message-error" : undefined}
-                  className="w-full resize-none rounded-xl border border-white/[0.09] bg-white/[0.02] px-4 py-3 text-sm text-mist-100 placeholder:text-mist-600 focus:border-signal-violet/50"
+                  className="w-full resize-none rounded-xl border border-ink-700 bg-ink-900 px-4 py-3 text-sm text-mist-100 placeholder:text-mist-600 transition-colors focus:border-signal-indigo"
                   placeholder="Tell me a bit about your project..."
                 />
                 {errors.message && (
-                  <p id="message-error" className="mt-1.5 text-xs text-red-400">
+                  <p id="message-error" className="mt-1.5 text-xs text-red-600 dark:text-red-400">
                     {errors.message}
                   </p>
                 )}
@@ -159,13 +159,13 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-signal-gradient px-7 py-3.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.02]"
+                className="btn btn-primary btn-lg"
               >
                 Send message
               </button>
 
               {status === "success" && (
-                <p role="status" className="text-sm text-signal-cyan">
+                <p role="status" className="text-sm font-medium text-signal-cyan">
                   Thanks — your message has been sent. I&rsquo;ll get back to you soon.
                 </p>
               )}
@@ -192,10 +192,10 @@ function Field({ label, name, value, onChange, error, type = "text", autoComplet
         autoComplete={autoComplete}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
-        className="w-full rounded-xl border border-white/[0.09] bg-white/[0.02] px-4 py-3 text-sm text-mist-100 placeholder:text-mist-600 focus:border-signal-violet/50"
+        className="w-full rounded-xl border border-ink-700 bg-ink-900 px-4 py-3 text-sm text-mist-100 placeholder:text-mist-600 transition-colors focus:border-signal-indigo"
       />
       {error && (
-        <p id={`${name}-error`} className="mt-1.5 text-xs text-red-400">
+        <p id={`${name}-error`} className="mt-1.5 text-xs text-red-600 dark:text-red-400">
           {error}
         </p>
       )}

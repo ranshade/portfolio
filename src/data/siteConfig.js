@@ -4,18 +4,17 @@
 // ─────────────────────────────────────────────────────────────
 
 export const siteConfig = {
-  name: "Alex Rivera",
-  initials: "AR",
+  name: "Ransh",
+  initials: "RD",
   role: "Full Stack Developer",
   tagline: "Building digital experiences that make an impact.",
-  location: "Austin, Texas",
-  email: "your@email.com",
+  location: "Quezon City, Philippines",
+  email: "sdyend@gmail.com",
   availability: "Available for new projects",
   resumeUrl: "#",
   social: {
     github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    facebook: "https://facebook.com/yourusername"
   },
   stats: [
     { label: "Years of experience", value: "5+" },

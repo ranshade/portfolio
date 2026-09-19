@@ -8,7 +8,7 @@ function ProficiencyDots({ level }) {
         <span
           key={i}
           className={`h-1.5 w-1.5 rounded-full ${
-            i < level ? "bg-signal-violet" : "bg-white/10"
+            i < level ? "bg-signal-indigo" : "bg-ink-800"
           }`}
         />
       ))}
@@ -37,7 +37,7 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 transition-colors hover:border-white/[0.14] hover:bg-white/[0.04]"
+                    className="surface-card-interactive group h-full p-5"
                   >
                     <div className="flex items-start justify-between">
                       <h4 className="font-display text-base font-medium text-mist-100">
