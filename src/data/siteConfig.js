@@ -22,6 +22,6 @@ export const siteConfig = {
     // You didn't mention a client count, so I left this as the
     // stack size rather than inventing a number. Swap it for
     // "Happy clients" if you have a figure you can stand behind.
-    { label: "Technologies in my stack", value: "10+" },
+    { label: "Technologies in my stack", value: "15+" },
   ],
 };
