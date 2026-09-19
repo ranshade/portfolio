@@ -17,8 +17,11 @@ export const siteConfig = {
     facebook: "https://facebook.com/yourusername"
   },
   stats: [
-    { label: "Years of experience", value: "5+" },
-    { label: "Projects completed", value: "40+" },
-    { label: "Happy clients", value: "20+" },
+    { label: "Year of experience", value: "1" },
+    { label: "Projects completed", value: "10+" },
+    // You didn't mention a client count, so I left this as the
+    // stack size rather than inventing a number. Swap it for
+    // "Happy clients" if you have a figure you can stand behind.
+    { label: "Technologies in my stack", value: "10+" },
   ],
 };

@@ -3,14 +3,17 @@ import { siteConfig } from "../data/siteConfig.js";
 import Reveal from "./Reveal.jsx";
 
 const techStack = [
-  "JavaScript",
+  "PHP",
+  "Laravel",
+  "MySQL",
+  "Next.js",
   "React",
-  "Node.js",
+  "React Native",
+  "Flutter",
+  "Dart",
   "Tailwind CSS",
-  "Vite",
-  "Firebase",
+  "Figma",
   "Git",
-  "REST APIs",
 ];
 
 export default function About() {
@@ -31,7 +34,7 @@ export default function About() {
                 I&rsquo;m a {siteConfig.role.toLowerCase()} who enjoys the whole arc of building
                 something — sketching the data model, wiring up the interface, and tuning the
                 last few pixels until it feels right. I&rsquo;m most at home in React codebases,
-                but I&rsquo;m comfortable moving down the stack when a project needs it.
+                but I&rsquo;m comfortable moving down the stack into Laravel and MySQL when a project needs it.
               </p>
               <p>
                 Recently I&rsquo;ve been focused on performance and accessibility: making sites

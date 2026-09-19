@@ -1,8 +1,13 @@
 export const services = [
   {
-    title: "Web Development",
-    description: "End-to-end builds from a Figma file or a blank page — architected to be maintained, not just shipped.",
+    title: "Web Application Development",
+    description: "Full-stack builds with Laravel and MySQL on the backend, Next.js or React on the front — architected to be maintained, not just shipped.",
     icon: "Code2",
+  },
+  {
+    title: "Mobile App Development",
+    description: "Cross-platform Android and iOS apps built with Flutter or React Native from a single codebase.",
+    icon: "Smartphone",
   },
   {
     title: "Frontend Development",
@@ -10,23 +15,18 @@ export const services = [
     icon: "LayoutTemplate",
   },
   {
-    title: "UI/UX Implementation",
-    description: "Turning design files into pixel-accurate, accessible interfaces without losing the original intent.",
+    title: "UI/UX Design & Implementation",
+    description: "Wireframes and prototypes in Figma, then turned into pixel-accurate, accessible interfaces without losing the original intent.",
     icon: "PenTool",
   },
   {
-    title: "Website Optimization",
-    description: "Auditing and improving load times, bundle size, and Core Web Vitals on existing sites.",
-    icon: "Gauge",
+    title: "Database Design",
+    description: "MySQL schema design, relationships, and queries — planned around how the data will actually be read and written.",
+    icon: "Database",
   },
   {
     title: "Responsive Web Design",
     description: "Layouts tested and refined across mobile, tablet, and desktop — not just resized.",
-    icon: "Smartphone",
-  },
-  {
-    title: "Website Deployment",
-    description: "CI/CD setup, environment configuration, and hosting on modern platforms like Vercel.",
-    icon: "Rocket",
+    icon: "MonitorSmartphone",
   },
 ];

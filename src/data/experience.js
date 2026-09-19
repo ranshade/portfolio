@@ -1,26 +1,24 @@
+// ─────────────────────────────────────────────────────────────
+// TODO: replace the entry below with your real role, company,
+// dates, and what you actually shipped there.
+//
+// The previous contents were the template's sample data — a
+// 2019–2023 work history at companies that don't exist. That
+// would have contradicted the "1 year of experience" on your
+// About section, and it's the first thing an interviewer checks.
+//
+// If you don't have formal employment yet, freelance work, an
+// internship, OJT, or a capstone project all belong here — just
+// label them honestly. One true entry beats three invented ones.
+// ─────────────────────────────────────────────────────────────
+
 export const experience = [
   {
-    role: "Frontend Developer",
-    company: "Northwind Digital",
-    date: "2023 — Present",
-    description:
-      "Leading the frontend for a suite of internal tools, cutting page load times by 40% and establishing the team's shared component library.",
-    technologies: ["React", "Tailwind CSS", "Vite"],
-  },
-  {
     role: "Full Stack Developer",
-    company: "Fieldstone Labs",
-    date: "2021 — 2023",
+    company: "Freelance / Self-employed",
+    date: "2025 — Present",
     description:
-      "Built and maintained customer-facing web applications end to end, from API design through deployment, for a team serving 50k+ monthly users.",
-    technologies: ["Node.js", "React", "Firebase"],
-  },
-  {
-    role: "Freelance Developer",
-    company: "Self-employed",
-    date: "2019 — 2021",
-    description:
-      "Delivered 15+ websites and web apps for small businesses and startups, handling everything from design handoff to hosting and client training.",
-    technologies: ["JavaScript", "REST APIs", "Vercel"],
+      "Building web and mobile applications end to end — Laravel and MySQL on the backend, Next.js and Flutter on the client, with designs prototyped in Figma first.",
+    technologies: ["Laravel", "MySQL", "Next.js", "Flutter"],
   },
 ];

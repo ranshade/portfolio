@@ -1,29 +1,39 @@
 // Proficiency is on a 1–5 scale and renders as filled segments, not a percentage.
+// Levels below are a starting point — tune them to how you'd actually rate
+// yourself in an interview, since this is the section people scan hardest.
 export const skillGroups = [
   {
-    group: "Interface",
+    group: "Frontend",
     skills: [
-      { name: "React", description: "Component architecture, hooks, state patterns", level: 5 },
-      { name: "JavaScript", description: "ES2023, async patterns, DOM APIs", level: 5 },
-      { name: "Tailwind CSS", description: "Design systems, responsive layouts", level: 5 },
-      { name: "HTML & CSS", description: "Semantic markup, accessible layouts", level: 5 },
+      { name: "Next.js", description: "App Router, SSR, API routes, deployment", level: 4 },
+      { name: "React", description: "Component architecture, hooks, state patterns", level: 4 },
+      { name: "Tailwind CSS", description: "Utility-first styling, responsive layouts", level: 4 },
+      { name: "JavaScript", description: "ES2023, async patterns, DOM APIs", level: 4 },
     ],
   },
   {
-    group: "Platform",
+    group: "Backend & Data",
     skills: [
-      { name: "Node.js", description: "REST APIs, middleware, server tooling", level: 4 },
-      { name: "REST APIs", description: "Design, auth, versioning, docs", level: 4 },
-      { name: "Firebase", description: "Auth, Firestore, hosting, functions", level: 4 },
-      { name: "Vite", description: "Build tooling, plugin config, optimization", level: 4 },
+      { name: "PHP", description: "Server-side logic, sessions, form handling", level: 4 },
+      { name: "Laravel", description: "Eloquent, Blade, routing, migrations, auth", level: 4 },
+      { name: "MySQL", description: "Schema design, joins, queries via XAMPP", level: 3 },
+      { name: "REST APIs", description: "Endpoint design, auth, JSON contracts", level: 3 },
     ],
   },
   {
-    group: "Workflow",
+    group: "Mobile",
     skills: [
-      { name: "Git", description: "Branching strategy, code review, rebasing", level: 5 },
-      { name: "GitHub", description: "Actions, PR workflows, project boards", level: 5 },
-      { name: "Vercel", description: "CI/CD, preview deployments, edge config", level: 4 },
+      { name: "Flutter", description: "Widget composition, state management, builds", level: 4 },
+      { name: "Dart", description: "Async/await, null safety, OOP patterns", level: 3 },
+      { name: "React Native", description: "Cross-platform screens, navigation, native modules", level: 3 },
+    ],
+  },
+  {
+    group: "Design & Workflow",
+    skills: [
+      { name: "Figma", description: "Wireframes, prototypes, design-to-code handoff", level: 4 },
+      { name: "Git & GitHub", description: "Branching, pull requests, version control", level: 4 },
+      { name: "XAMPP", description: "Local Apache/MySQL environment setup", level: 4 },
     ],
   },
 ];
