@@ -13,7 +13,7 @@ export const siteConfig = {
   availability: "Available for new projects",
   resumeUrl: "#",
   social: {
-    github: "https://github.com/yourusername",
+    github: "https://github.com/ranshade",
     facebook: "https://www.facebook.com/share/1dUYLfARY7/"
   },
   stats: [
