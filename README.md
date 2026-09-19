@@ -232,3 +232,73 @@ hover) was verified by compiling the actual Tailwind config and confirming
 the keyframes, utility classes, and the `group-hover/row:[animation-play-
 state:paused]` rule all generate correctly — a screenshot just can't show
 motion either way.
+
+## Font (matches react.dev)
+
+Every heading and body element now uses **Inter** — react.dev uses Inter
+across its whole site, so this matches it exactly. Space Grotesk was
+dropped; `font-display` and `font-body` in `tailwind.config.js` both point
+at Inter now (kept as two token names so components didn't need renaming —
+`font-display` just leans on the heavier 600–800 weights). JetBrains Mono
+is unchanged for the hero's code snippet and the tech marquee labels.
+
+## Contact form (now functional)
+
+The form used to only update local state — nothing was actually sent. It
+now works two ways:
+
+**Right now, zero setup:** submitting opens the visitor's own email app
+(Gmail, Outlook, Mail, whatever they have set as default) with the To,
+subject, and message already filled in, addressed to `siteConfig.email`.
+They just hit send in their own client. No account, no key, no backend.
+
+**Silent in-page send (optional upgrade):** to submit without leaving the
+page, get a free key at [web3forms.com](https://web3forms.com) — enter the
+email you want messages delivered to, no signup, they email you the key
+instantly. Then:
+
+1. Copy `.env.example` to `.env.local` and paste the key into
+   `VITE_WEB3FORMS_KEY=`.
+2. Add the same variable in your host's dashboard for production (Vercel →
+   Project → Settings → Environment Variables), then redeploy.
+
+With the key set, `Contact.jsx` POSTs straight to Web3Forms and shows a
+"message sent" status instead of opening an email app. No backend or
+server code needed either way — everything happens from the browser.
+
+## Project card polish
+
+- Real project images now darken slightly on hover (`bg-gradient-to-t
+  from-black/15`) so the card still reads clearly if you add overlaid text
+  later.
+- The "source code unavailable" note is a small badge with a lock icon
+  now, instead of italic grey text — reads as an intentional status rather
+  than an apology.
+
+## Layout: sidebar navigation
+
+The top navbar is gone. Navigation is now:
+
+- **`lg:` and up** — a fixed left sidebar (`Sidebar.jsx`, the `<aside>`):
+  logo, name/role, availability badge, vertical nav with a left-bar active
+  indicator, a "Let's work together" button, socials, and the theme toggle.
+  It's `fixed`, so it's out of normal document flow — `App.jsx` adds
+  matching `lg:pl-72 xl:pl-80` to the content wrapper so nothing sits
+  underneath it. If you resize the sidebar (`w-72 xl:w-80`), update that
+  padding to match, or content will overlap it.
+- **Below `lg:`** — the same component renders a fixed top bar with a
+  hamburger drawer instead (a sidebar doesn't work on a narrow screen).
+
+Both layouts share one `useActiveSection` call and the same `navLinks` /
+`sectionIds` arrays, so add a new section's id to `sectionIds` in
+`Sidebar.jsx` (not two separate files) to keep the active-link state
+correct on both.
+
+The old `.nav-link` (underline, horizontal-navbar) CSS was removed — it's
+no longer used by anything. `.nav-link-mobile` (left-bar indicator) is now
+the one nav-link style, used by both the sidebar and the drawer.
+
+Also fixed while in here: both `Contact.jsx` and `Footer.jsx` had a
+`socialIcons` map for `github`/`linkedin`/`twitter`, but `siteConfig.social`
+only has `github`/`facebook` — the Facebook link was silently rendering
+nothing. Both now map `facebook` correctly.

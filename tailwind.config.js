@@ -46,7 +46,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "sans-serif"],
+        // Inter for both — the same typeface react.dev uses site-wide.
+        // Kept as two token names (display/body) so components don't need
+        // to change; `display` just leans on heavier weights (600–800).
+        display: ["'Inter'", "sans-serif"],
         body: ["'Inter'", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
       },

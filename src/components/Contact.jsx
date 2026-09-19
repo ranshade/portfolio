@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
+import { Facebook, Github, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "../data/siteConfig.js";
 import Reveal from "./Reveal.jsx";
 import Section from "./Section.jsx";
@@ -7,11 +7,16 @@ import SectionHeader from "./SectionHeader.jsx";
 
 const socialIcons = {
   github: Github,
-  linkedin: Linkedin,
-  twitter: Twitter,
+  facebook: Facebook,
 };
 
 const initialForm = { name: "", email: "", subject: "", message: "" };
+
+// Set VITE_WEB3FORMS_KEY (see .env.example) to send silently from inside
+// the page via https://web3forms.com — free, no backend required. Without
+// a key, the form falls back to opening the visitor's own email app with
+// the message pre-filled, which needs no setup at all but isn't silent.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 function validate(form) {
   const errors = {};
@@ -33,7 +38,8 @@ function validate(form) {
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | success
+  // idle | sending | success | mailto | error
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,10 +52,40 @@ export default function Contact() {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
-    // Frontend-only for now. To connect a backend or email service
-    // (e.g. Formspree, EmailJS, or a custom API route), send `form`
-    // to that endpoint here instead of just setting local status.
-    setStatus("success");
+    if (WEB3FORMS_KEY) {
+      setStatus("sending");
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            subject: `Portfolio contact — ${form.subject}`,
+            from_name: form.name,
+            email: form.email,
+            message: form.message,
+          }),
+        });
+        const result = await response.json();
+        if (result.success) {
+          setStatus("success");
+          setForm(initialForm);
+        } else {
+          setStatus("error");
+        }
+      } catch {
+        setStatus("error");
+      }
+      return;
+    }
+
+    // No key configured — open the visitor's own email app instead, with
+    // the subject and message already filled in against siteConfig.email.
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
+      form.subject
+    )}&body=${encodeURIComponent(body)}`;
+    setStatus("mailto");
     setForm(initialForm);
   };
 
@@ -157,14 +193,34 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="btn btn-primary btn-lg"
+                disabled={status === "sending"}
+                className="btn btn-primary btn-lg disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Send message
+                {status === "sending" ? "Sending…" : "Send message"}
               </button>
 
               {status === "success" && (
                 <p role="status" className="text-sm font-medium text-signal-cyan">
                   Thanks — your message has been sent. I&rsquo;ll get back to you soon.
+                </p>
+              )}
+              {status === "mailto" && (
+                <p role="status" className="text-sm font-medium text-signal-cyan">
+                  Opening your email app with the message ready to send. If nothing opened,
+                  email me directly at{" "}
+                  <a href={`mailto:${siteConfig.email}`} className="underline">
+                    {siteConfig.email}
+                  </a>
+                  .
+                </p>
+              )}
+              {status === "error" && (
+                <p role="status" className="text-sm font-medium text-red-600 dark:text-red-400">
+                  Something went wrong sending that. Please email me directly at{" "}
+                  <a href={`mailto:${siteConfig.email}`} className="underline">
+                    {siteConfig.email}
+                  </a>
+                  .
                 </p>
               )}
             </form>

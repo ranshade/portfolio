@@ -1,10 +1,9 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Facebook } from "lucide-react";
 import { siteConfig } from "../data/siteConfig.js";
 
 const socialIcons = {
   github: Github,
-  linkedin: Linkedin,
-  twitter: Twitter,
+  facebook: Facebook,
 };
 
 const footerLinks = [

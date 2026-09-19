@@ -5,10 +5,14 @@ export const skillGroups = [
   {
     group: "Frontend",
     skills: [
-      { name: "Next.js", description: "App Router, SSR, API routes, deployment", level: 4 },
-      { name: "React", description: "Component architecture, hooks, state patterns", level: 4 },
-      { name: "Tailwind CSS", description: "Utility-first styling, responsive layouts", level: 4 },
-      { name: "JavaScript", description: "ES2023, async patterns, DOM APIs", level: 4 },
+      { name: "Vite", description: "Dev server, build config, plugin setup", level: 5 },
+      { name: "shadcn/ui", description: "Accessible component primitives, theming, composition", level: 5},
+      { name: "GSAP", description: "Timelines, scroll-triggered animation, easing", level: 3 },
+      { name: "React", description: "Component architecture, hooks, state patterns", level: 5 },
+      { name: "Tailwind CSS", description: "Utility-first styling, responsive layouts", level: 5 },
+      { name: "JavaScript", description: "ES2023, async patterns, DOM APIs", level: 5 },
+      { name: "Next.js", description: "App Router, SSR, API routes, deployment", level: 3 },
+
     ],
   },
   {
@@ -25,15 +29,15 @@ export const skillGroups = [
     skills: [
       { name: "Flutter", description: "Widget composition, state management, builds", level: 4 },
       { name: "Dart", description: "Async/await, null safety, OOP patterns", level: 3 },
-      { name: "React Native", description: "Cross-platform screens, navigation, native modules", level: 3 },
+      { name: "React Native", description: "Cross-platform screens, navigation, native modules", level: 5 },
     ],
   },
   {
     group: "Design & Workflow",
     skills: [
-      { name: "Figma", description: "Wireframes, prototypes, design-to-code handoff", level: 4 },
+      { name: "Figma", description: "Wireframes, prototypes, design-to-code handoff", level: 5 },
       { name: "Git & GitHub", description: "Branching, pull requests, version control", level: 4 },
-      { name: "XAMPP", description: "Local Apache/MySQL environment setup", level: 4 },
+      { name: "XAMPP", description: "Local Apache/MySQL environment setup", level: 5 },
     ],
   },
 ];
