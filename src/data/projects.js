@@ -67,9 +67,9 @@ export const projects = [
 {
 title: "Pulse",
 description:
-"A mobile application focused on delivering a smooth and intuitive user experience with efficient features designed for everyday use.",
+"A fitness tracking mobile app that helps users monitor their workouts, track daily activity, and stay motivated toward their fitness goals.",
 image: pulseImage,
-technologies: ["React Native",],
+technologies: ["React Native"],
 // github: "#",
 // demo: "#",
 note: "Source Code is unavailable at the moment.",
