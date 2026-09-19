@@ -12,13 +12,22 @@
 // label them honestly. One true entry beats three invented ones.
 // ─────────────────────────────────────────────────────────────
 
+
 export const experience = [
   {
-    role: "Full Stack Developer",
-    company: "Freelance / Self-employed",
+    role: "IT Support/Full Stack Developer",
+    company: "Rosario Maclang Bautista General Hospital",
     date: "2025 — Present",
     description:
-      "Building web and mobile applications end to end — Laravel and MySQL on the backend, Next.js and Flutter on the client, with designs prototyped in Figma first.",
-    technologies: ["Laravel", "MySQL", "Next.js", "Flutter"],
+      "Providing technical support and developing internal web-based systems for hospital operations, from troubleshooting hardware and software issues to designing and implementing user interfaces, backend services, databases, and system features. Frequently working with Vite, React, Tailwind CSS, shadcn/ui, Laravel, PHP, and MySQL while translating operational requirements into practical and user-friendly solutions.",
+    technologies: [
+      "Vite",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Laravel",
+      "PHP",
+      "MySQL",
+    ],
   },
 ];
