@@ -31,17 +31,7 @@ export default function About() {
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-20">
           <Reveal delay={80}>
             <div className="max-w-prose space-y-5 text-base leading-relaxed text-mist-500">
-              <p>
-                I&rsquo;m a {siteConfig.role.toLowerCase()} who enjoys the whole arc of building
-                something — sketching the data model, wiring up the interface, and tuning the
-                last few pixels until it feels right. I&rsquo;m most at home in React and
-                Next.js codebases, but I&rsquo;m comfortable moving down the stack into Laravel
-                and MySQL when a project needs it.
-              </p>
-              <p>
-                I also build for mobile with Flutter and React Native, and I usually start in
-                Figma so the layout is settled before a single component gets written.
-              </p>
+              <p> I&rsquo;m a {siteConfig.role.toLowerCase()} focused on building modern, responsive, and user-friendly digital experiences. I primarily work with React and Vite, turning ideas and designs into clean, functional interfaces while keeping the details polished and intentional. </p> <p> I also work across the stack with Laravel and MySQL, and build mobile applications using Flutter and React Native. For UI/UX projects, I use Figma to plan and refine the experience before bringing the design to life through code. </p>
               <div className="flex items-center gap-2 pt-2 text-sm text-mist-500">
                 <MapPin size={16} className="text-signal-indigo" />
                 {siteConfig.location}
