@@ -58,9 +58,9 @@ export const projects = [
       "A mobile app designed to make movie dates easier by helping users discover movies, plan date schedules, and send personalized invitations to friends or loved ones.",
     image: mobyImage,
     technologies: ["React Native", "TypeScript", "GSAP"],
-    // github: "#",
+    github: "https://github.com/ranshade/moby.git",
     // demo: "#",
-    note: "Source Code is unavailable at the moment.",
+    note: "Live Demo is unavailable at the moment.",
     featured: false,
   },
 
