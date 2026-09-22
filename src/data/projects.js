@@ -23,7 +23,7 @@ export const projects = [
     image: nextHireImage,
     technologies: ["Vite", "React", "Tailwind", "Shadcn/ui"],
     github: "https://github.com/ranshade/NextHire.git",
-    demo: "n-hire.netlify.app",
+    demo: "https://n-hire.netlify.app",
     note: "",
     featured: true,
   },
