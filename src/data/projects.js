@@ -12,8 +12,21 @@ import glowNatureImage from "../assets/glow-nature.jpg";
 import mobyImage from "../assets/moby.jpg";
 import pulseImage from "../assets/pulse.png";
 import xxlApparelImage from "../assets/xxl-apparel.jpg";
+import nextHireImage from "../assets/next_hire.png";
 
 export const projects = [
+
+      {
+    title: "NextHire",
+    description:
+      "A modern global job-search platform for discovering international career opportunities.",
+    image: nextHireImage,
+    technologies: ["Vite", "React", "Tailwind", "Shadcn/ui"],
+    github: "https://github.com/ranshade/NextHire.git",
+    demo: "n-hire.netlify.app",
+    note: "",
+    featured: true,
+  },
 
     {
     title: "Business Analytics Dashboard",
