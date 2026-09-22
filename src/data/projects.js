@@ -12,7 +12,7 @@ import glowNatureImage from "../assets/glow-nature.jpg";
 import mobyImage from "../assets/moby.jpg";
 import pulseImage from "../assets/pulse.png";
 import xxlApparelImage from "../assets/xxl-apparel.jpg";
-import nextHireImage from "../assets/next_hire.png";
+import nextHireImage from "../assets/nexthire.png";
 
 export const projects = [
 
